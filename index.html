@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Goal Progress Tracker</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/parts.js" defer></script>
+        <script src="js/main.js" defer></script>
+        <script>
+            window.onload = function(){
+                var helpBtn = document.getElementById("helpBtn");
+                var helpBlock = document.getElementById("helpBlock");
+                helpBtn.addEventListener("mouseover", function(){
+                    helpBtn.innerHTML = "";
+                    helpBlock.classList.add("help__block--display");
+                }, false);
+                helpBlock.addEventListener("mouseout", function(){
+                    helpBtn.innerHTML = "?";
+                    helpBlock.classList.remove("help__block--display");
+                })
+            };
+        </script>
+    </head>
+    <body class="body-container">
+        <div class="help">
+            <div class="help__btn" id="helpBtn">?</div>
+            <div class="help__block" id="helpBlock">
+                Goal Progress Tracker:<br><br>
+                <ul>
+                    <li>Type a goal(f.e. do morging exercise everyday) in TARGET field.</li>
+                    <li>Type a number of days, you want to explore your progress in COUNTER field.</li>
+                    <li>BE CAREFUL!In this version, your progress calendar starts directly from today, which means that
+                        you start doing your target right from today.
+                    </li>
+                    <li>If you type 0, then you will delete your progress and start date.</li>
+                    <li>If you type number less than you prev counter, then you calendar will be decreased.</li>
+                    <li>If you type number higher than you prev counter, then you calendar will be increased.</li>
+                    <li>After you will enter a number of days, you will get calendar(tracker).</li>
+                    <li>Click on calendar day in order to mark it done.A done item will become green.</li>
+                    <br>
+                    I wish you success in creating new habits. Good Luck!
+                </ul>
+            </div>
+        </div>
+        <div class="schedule">
+            <div class="schedule__info">
+                <div class="schedule__item sсhedule__target">
+                    <div class="sсhedule__key">TARGET:</div>
+                    <input class="sсhedule__value" type="text" id="targetValue" 
+                        placeholder="Please enter your goal and press Enter." 
+                        title="Please enter your goal and press Enter."></input>
+                </div>
+                <div class="schedule__item sсhedule__counter">
+                    <div class="sсhedule__key">COUNTER:</div>
+                    <input type="text" class="sсhedule__value" id="counterValue" 
+                        placeholder="Please enter a number of days for tracking progress and press Enter."
+                        title="Please enter a number of days for tracking progress and press Enter."></input>
+                </div>
+            </div>
+            <div class="schedule__grid">
+                <div class="grid" id="gridContainer">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
